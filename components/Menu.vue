@@ -9,6 +9,7 @@
         <ui-icon-button
         icon="file_download"
         :class="toolbarItemClass"
+        @click="onclick"
         ></ui-icon-button>
         <ui-icon-button 
         icon="print"
@@ -26,3 +27,13 @@
 
   </ui-top-app-bar>
 </template>
+
+<script>
+export default {
+  methods: {
+    onclick() {
+      alert("hello")
+    }
+  }
+}
+</script>
