@@ -5,7 +5,7 @@
                 <li v-for="(item,index) in logos " :key="index">
                     <div class="img-center">
                         <div class ="borders">
-                            <img :src="item.image" :alt="item.name" @v-on:click="doOnclick(item.onclick)">
+                            <img :src="item.image" :alt="item.name" v-on:click="doOnclick(item.onclick)">
                         </div>
                     </div>
                 </li>
@@ -50,9 +50,9 @@
 
     methods: {
         doOnclick (dosome) {
-            alert(dosome)
+            alert(`${dosome}`)
         },
-        
+
     },
     props: {
         themeOfPage: Number | 0
