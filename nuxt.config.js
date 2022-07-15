@@ -48,5 +48,20 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+
+  // IDK if it works
+  serverMiddleware: [
+    { path: "/api", handler: require("body-parser").json() },
+    {
+      path: "/api", 
+      handler: (req, _, next) => {
+        const url = require("url");
+        req.query = url.URL(req.url, true).query;
+        req.params = { ...req.query, ...req.body };
+        next();
+      }
+    },
+    { path: "/api", handler: "~/serverMiddleware/api-server.js" }
+  ] 
 }
